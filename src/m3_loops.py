@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  FOR and WHILE loops.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Zewei Xiang.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -36,6 +36,7 @@ def main():
     """ Calls the   TEST   functions in this module. """
     run_test_practice_problem3()
 
+
 # ----------------------------------------------------------------------
 # Students: Some of the testing code below uses SimpleTestCase objects,
 #           from the imported   simple_testing (st)   module.
@@ -45,7 +46,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # done: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -109,7 +110,9 @@ def run_test_practice_problem3():
              st.SimpleTestCase(practice_problem3,
                                [0, 1, 1.414213562373],
                                [286602]),
+
              ]
+
     # 14th test:
     big_list = []
     for k in range(888, 1888):
@@ -123,7 +126,12 @@ def run_test_practice_problem3():
     # Run the 14 tests in the   tests   list constructed above.
     # ------------------------------------------------------------------
     st.SimpleTestCase.run_tests('practice_problem3', tests)
-
+    st.SimpleTestCase(practice_problem3,
+                      [0, 1, 0],
+                      [0]),
+    st.SimpleTestCase(practice_problem3,
+                      [0, 2, 0],
+                      [0, 1]),
     ####################################################################
     # TO DO 2 continued:  More tests:
     #      YOU add at least **   2   ** additional tests here.
@@ -208,7 +216,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
@@ -216,6 +224,17 @@ def practice_problem3(start, n, threshold):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
     ####################################################################
+    number_get = 0
+    cur_num = start
+    return_list = []
+    while True:
+        if math.cos(cur_num) + math.sin(cur_num) > threshold:
+            return_list.append(cur_num)
+            number_get = number_get + 1
+        cur_num = cur_num + 1
+        if number_get == n:
+            break
+    return return_list
 
 
 # ----------------------------------------------------------------------
